@@ -1,0 +1,112 @@
+@font-face {
+  font-family: Forma;
+  src: url(../fonts/FormaDJRMicro-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Forma";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #ced3dc;
+}
+
+.nav-bar {
+  height: 65px;
+  padding: 1vw 2.2vw;
+  margin: 0.2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fcf7f8;
+  background-color: #5b616a;
+  border-radius: 10px;
+}
+
+.nav-left h3 {
+  font-size: 35px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.9vw;
+  padding-left: 2vw;
+}
+
+.nav-right input[type="text"] {
+  width: 12vw;
+  padding: 0 0.6rem;
+  border-radius: 0.4rem;
+  height: 30px;
+  border: none;
+}
+
+.nav-right input[type="text"]:focus {
+  outline: none;
+  color: black;
+  background-color: white;
+}
+
+.nav-right h3 a {
+  letter-spacing: 0.4px;
+  color: white;
+  font-size: 23px;
+  text-decoration: none;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  /* align-items: center; */
+}
+
+.items-container .item {
+  background-color: white;
+  padding: 2.5vh 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.items-container .img-container {
+  height: 35vh;
+  width: 230px;
+}
+
+.items-container .img-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.items-container .item-title {
+  font-size: 18px;
+  font-weight: 200;
+  margin: 17px 0;
+  text-transform: capitalize;
+}
+
+.items-container .item .sell .item-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  text-transform: none;
+}
+
+.items-container .item .sell .item-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

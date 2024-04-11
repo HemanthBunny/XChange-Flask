@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <h3>XChange</h3>
+      </div>
+      <div class="nav-right">
+        <input type="text" name="search" placeholder="search" class="search" />
+        <h3><a href="/home">Home</a></h3>
+        <h3><a href="/profile">Profile</a></h3>
+        <h3><a href="/logout" onclick="popsession()">Logout</a></h3>
+      </div>
+    </div>
+    <div class="items-container">
+      {% for i in range(l) %}
+      <div class="item">
+        <div class="img-container">
+          <img
+            src="data:image/png;base64,{{ encoded_images[i] }}"
+            alt="Image"
+          />
+        </div>
+        <div class="item-title">
+          <h2>{{ items[i].item_name }}</h2>
+        </div>
+        <div class="item-data">
+          <p><b>Cost &ensp;&ensp;:&nbsp;</b> ${{ items[i].item_cost }}</p>
+          <p><b>Name &ensp;:&nbsp;</b> {{ items[i].username }}</p>
+          <p><b>Mobile &nbsp;:&nbsp;</b> {{ mobile[i] }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="item">
+        <div class="sell">
+          <div class="item-title">
+            <h2>Want to</h2>
+            <h2>Add an Item ?</h2>
+          </div>
+          <div class="item-data">
+            <p>Head to your Profile</p>
+            <p>to start Selling</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    popsession();
+    {
+      sessionStorage.setItem("alertShownlogin", "false");
+      sessionStorage.setItem("alertShownadd", "false");
+    }
+  </script>
+</html>

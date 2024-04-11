@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/profile.css" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <h3>XChange</h3>
+      </div>
+      <div class="nav-right">
+        <!-- <h3><a href="/add">Sell</a></h3> -->
+        <h3><a href="/home">Home</a></h3>
+        <h3><a href="/profile">Profile</a></h3>
+        <h3><a href="/logout" onclick="popsession()">Logout</a></h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container-left">
+        <img
+          src="data:image/png;base64,{{ profile_img }}"
+          alt="Profile Image"
+          id="profile-img"
+        />
+        <div class="name" id="user">
+          <h1>{{user['name']}}</h1>
+          <p>Name</p>
+        </div>
+        <div class="username" id="user">
+          <h1>{{user['username']}}</h1>
+          <p>Username</p>
+        </div>
+        <div class="mobile" id="user">
+          <h1>{{user['mobile']}}</h1>
+          <p>Phone</p>
+        </div>
+        <button id="openFormBtn" class="sellButton">Sell</button>
+      </div>
+
+      <div class="container-right">
+        <h2>Items for Sale</h2>
+        <div class="items-container">
+          {% for i in range(l) %}
+          <div class="item">
+            <div class="img-container">
+              <img
+                src="data:image/png;base64,{{ encoded_images[i] }}"
+                alt="Image"
+              />
+            </div>
+            <div class="item-title">
+              <h2>{{ items[i].item_name }}</h2>
+            </div>
+            <div class="item-data">
+              <p><b>Cost&ensp;: &ensp;</b> ${{ items[i].item_cost }}</p>
+              <form method="POST" action="/delete-item/{{ items[i]._id }}">
+                <button type="submit">Remove</button>
+              </form>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay">
+        <div class="popup">
+          <span class="close" id="closeBtn">&times;</span>
+          <div class="popup-content">
+            <h2>List an Item</h2>
+          <form action="/addingitem" method="post" enctype="multipart/form-data">
+            <div id="sell-container">
+              <input type="text" name="item_name" placeholder="Enter name" />
+              <input type="number" name="item_cost" placeholder="Enter cost" />
+              <input type="file" name="item_image" />
+              <button type="submit">Add</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    <script>
+      window.onload = function () {
+        var message = "{{ message }}";
+
+        if (
+          message == "Logged in successfully" &&
+          sessionStorage.getItem("alertShownlogin") !== "true"
+        ) {
+          alert(message);
+          sessionStorage.setItem("alertShownlogin", "true");
+        }
+        if (
+          message == "Item added successfully" &&
+          sessionStorage.getItem("alertShownadd") !== "true"
+        ) {
+          alert(message);
+          sessionStorage.setItem("alertShownadd", "true");
+        }
+      };
+
+      document.getElementById("openFormBtn").addEventListener("click", function () {
+        document.getElementById("overlay").style.display = "block";
+      });
+
+      document
+        .getElementById("closeBtn")
+        .addEventListener("click", function () {
+          document.getElementById("overlay").style.display = "none";
+        });
+    </script>
+  </body>
+</html>

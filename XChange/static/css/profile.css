@@ -1,0 +1,236 @@
+@font-face {
+  font-family: Forma;
+  src: url(../fonts/FormaDJRMicro-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Forma";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #ced3dc;
+}
+
+.nav-bar {
+  height: 65px;
+  padding: 1vw 2.2vw;
+  margin: 0.2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fcf7f8;
+  background-color: #5b616a;
+  border-radius: 10px;
+}
+
+.nav-left h3 {
+  font-size: 35px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.9vw;
+  padding-left: 2vw;
+}
+
+.nav-right h3 a {
+  letter-spacing: 0.4px;
+  color: white;
+  font-size: 23px;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.container .container-left {
+  width: 22vw;
+  height: 88vh;
+  background-color: #fcf7f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 3vh 2vh;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+}
+
+.container .container-left img {
+  margin-bottom: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: #5b616a double 3px;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.container .container-left .name h1 {
+  text-transform: capitalize;
+}
+
+.container .container-left #user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .container-left #user p {
+  font-size: smaller;
+}
+
+.container .container-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .container-right h2 {
+  text-transform: capitalize;
+  font-size: 30px;
+  margin-bottom: -10px;
+}
+
+.container .container-right .items-container {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  /* align-items: center; */
+}
+
+.items-container .item {
+  background-color: white;
+  padding: 2.5vh 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.items-container .img-container {
+  height: 35vh;
+  width: 230px;
+}
+
+.items-container .img-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.items-container .item-title {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 200;
+  margin: 12px 0;
+}
+
+.items-container .item-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin-top: 8px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c82333;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  backdrop-filter: blur(1px); /* Blurring effect */
+  z-index: 2;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup .popup-content h2 {
+  font-size: 30px;
+}
+
+.popup .popup-content #sell-container{
+  padding: 30px 0;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup .popup-content #sell-container button{
+  padding: 10px 17px;
+  font-size: 15px;
+}
+
+.popup .popup-content input {
+  width: 80%;
+  background: #dfdddd;
+  border: 2.2px grey solid;
+  outline: none;
+  padding: 1.8vh 2.6vh;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  font-size: 1.05em;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.sellButton {
+  padding: 10px 20px;
+  font-size: 16px;
+}
